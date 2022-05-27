@@ -2,6 +2,7 @@ package water_bill;
 
 import water_bill.dto.WaterBillInput;
 import water_bill.lib.FileProcessor;
+import water_bill.services.WaterBillService;
 
 import java.io.IOException;
 
@@ -11,7 +12,8 @@ public class WaterBillApplication {
         if(args.length != 0 && args[0] != null) {
             FileProcessor fileProcessor = new FileProcessor(args[0]);
             WaterBillInput waterBillInput = fileProcessor.readFile();
-            System.out.println(waterBillInput.toString());
+            WaterBillService waterBillService = new WaterBillService(waterBillInput);
+            waterBillService.generateBill();
         } else {
             System.out.println("Please provide valid filepath");
         }
