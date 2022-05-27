@@ -3,9 +3,9 @@ package water_bill.models.apartment;
 import water_bill.models.WaterRatio;
 
 public class Apartment {
-    private final int waterPerDayForEachPerson = 10;
-    private final int daysOfMonth = 30;
-    private final int numberOfPeople;
+    private final int WATER_PER_DAY_FOR_EACH_PERSON = 10;
+    private final int DAYS_OF_MONTH = 30;
+    private int numberOfPeople;
     private int noOfGuests;
     private WaterRatio waterRatio;
 
@@ -39,6 +39,6 @@ public class Apartment {
     }
 
     private int waterConsumptionPerMonthForEachPerson() {
-      return waterPerDayForEachPerson * daysOfMonth;
+      return WATER_PER_DAY_FOR_EACH_PERSON * DAYS_OF_MONTH;
     }
 }

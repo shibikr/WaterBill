@@ -3,12 +3,9 @@ package water_bill.models.apartment;
 import water_bill.models.WaterRatio;
 
 public class ThreeRoomApartment extends Apartment {
-    private int noOfGuests;
-    private WaterRatio waterRatio;
 
+    private static final int NUMBER_OF_PEOPLE = 5;
     public ThreeRoomApartment(int noOfGuests, WaterRatio waterRatio) {
-        super(noOfGuests, waterRatio, 5);
-        this.noOfGuests = noOfGuests;
-        this.waterRatio = waterRatio;
+        super(noOfGuests, waterRatio, NUMBER_OF_PEOPLE);
     }
 }
