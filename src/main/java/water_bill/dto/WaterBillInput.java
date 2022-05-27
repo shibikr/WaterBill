@@ -11,11 +11,4 @@ public class WaterBillInput {
     public List<String> getInput() {
         return input;
     }
-
-    @Override
-    public String toString() {
-        return "WaterBillInput{" +
-                "lines=" + input +
-                '}';
-    }
 }
