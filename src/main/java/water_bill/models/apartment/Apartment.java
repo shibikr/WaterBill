@@ -27,11 +27,11 @@ public class Apartment {
     }
 
     public Double totalWaterConsumedFromBoreWell() {
-        return Double.valueOf(waterConsumptionPerMonthResidents() / getTotalWaterRatio()) * waterRatio.getBoreWellWater();
+        return 1.0 * waterConsumptionPerMonthResidents() * (getTotalWaterRatio() - waterRatio.getCorporationWater()) / waterRatio.getCorporationWater();
     }
 
     public Double totalWaterConsumedFromCorporation() {
-        return Double.valueOf(waterConsumptionPerMonthResidents() / getTotalWaterRatio()) * waterRatio.getCorporationWater();
+        return 1.0 *waterConsumptionPerMonthResidents() *(waterRatio.getCorporationWater()/getTotalWaterRatio());
     }
 
     private int getTotalWaterRatio() {
