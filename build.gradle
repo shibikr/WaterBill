@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+    id 'idea'
+}
+
+apply plugin: 'application'
+mainClassName = 'org.bills.water_bill.Main'
+
+group 'org.waterbill'
+version '1.0-SNAPSHOT'
+
+java {
+    sourceCompatibility = 11
+    targetCompatibility = 11
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+}
+
+test {
+    useJUnitPlatform()
+
+    testLogging {
+        events = ['FAILED', 'PASSED', 'SKIPPED', 'STANDARD_OUT']
+    }
+}
