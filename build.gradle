@@ -4,9 +4,9 @@ plugins {
 }
 
 apply plugin: 'application'
-mainClassName = 'org.bills.water_bill.Main'
+mainClassName = 'water_bill.WaterBillApplication'
 
-group 'org.waterbill'
+group 'water_bill'
 version '1.0-SNAPSHOT'
 
 java {
