@@ -27,4 +27,18 @@ public class ThreeRoomApartment implements Apartment {
     public int totalWaterConsumedForMonth() {
         return waterConsumptionPerMonthResidents() + waterConsumptionPerMonthGuests();
     }
+
+    @Override
+    public Double totalWaterConsumedFromBoreWell() {
+        return Double.valueOf(waterConsumptionPerMonthResidents() / getTotalWaterRatio()) * waterRatio.getBoreWellWater();
+    }
+
+    @Override
+    public Double totalWaterConsumedFromCorporation() {
+        return Double.valueOf(waterConsumptionPerMonthResidents() / getTotalWaterRatio()) * waterRatio.getCorporationWater();
+    }
+
+    private int getTotalWaterRatio() {
+        return waterRatio.getCorporationWater() + waterRatio.getBoreWellWater();
+    }
 }

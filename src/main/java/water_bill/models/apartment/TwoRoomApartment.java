@@ -1,7 +1,6 @@
 package water_bill.models.apartment;
 
 import water_bill.models.WaterRatio;
-import water_bill.models.apartment.Apartment;
 
 public class TwoRoomApartment implements Apartment {
     private final int numberOfPeople;
@@ -27,5 +26,19 @@ public class TwoRoomApartment implements Apartment {
     @Override
     public int totalWaterConsumedForMonth() {
         return waterConsumptionPerMonthResidents() + waterConsumptionPerMonthGuests();
+    }
+
+    @Override
+    public Double totalWaterConsumedFromBoreWell() {
+        return Double.valueOf(waterConsumptionPerMonthResidents() / getTotalWaterRatio()) * waterRatio.getBoreWellWater();
+    }
+
+    @Override
+    public Double totalWaterConsumedFromCorporation() {
+        return Double.valueOf(waterConsumptionPerMonthResidents() / getTotalWaterRatio()) * waterRatio.getCorporationWater();
+    }
+
+    private int getTotalWaterRatio() {
+        return waterRatio.getCorporationWater() + waterRatio.getBoreWellWater();
     }
 }

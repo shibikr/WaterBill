@@ -2,13 +2,12 @@ package water_bill.services;
 
 import water_bill.dto.WaterBillInput;
 import water_bill.models.Bill;
+import water_bill.models.WaterRate;
 import water_bill.models.WaterRatio;
 import water_bill.models.apartment.Apartment;
 import water_bill.models.apartment.ThreeRoomApartment;
 import water_bill.models.apartment.TwoRoomApartment;
-
 import java.util.List;
-
 import static java.util.Objects.isNull;
 
 public class WaterBillService {
@@ -25,7 +24,8 @@ public class WaterBillService {
             System.out.println("Invalid input, please check");
             return;
         }
-        Bill bill = new Bill(apartment);
+        WaterRate waterRate = new WaterRate();
+        Bill bill = new Bill(apartment, waterRate);
         System.out.println(bill.getTotalWaterConsumed() + " " + bill.getTotalCost());
     }
 
@@ -33,7 +33,6 @@ public class WaterBillService {
         List<String> apartmentDetails = List.of(input.get(0).split(" "));
         int noOfGuests = getNoOfGuests(input);
         if(apartmentDetails.get(0).equals("ALLOT_WATER")) {
-            System.out.println("came to allot");
             WaterRatio waterRatio = getWaterRatio(apartmentDetails.get(2));
             if(apartmentDetails.get(1).equals("2")) {
                 return new TwoRoomApartment(noOfGuests, waterRatio);

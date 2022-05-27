@@ -4,9 +4,11 @@ import water_bill.models.apartment.Apartment;
 
 public class Bill {
     private Apartment apartment;
+    private WaterRate waterRate;
 
-    public Bill(Apartment apartment) {
+    public Bill(Apartment apartment, WaterRate waterRate) {
         this.apartment = apartment;
+        this.waterRate = waterRate;
     }
 
     public int getTotalWaterConsumed() {
@@ -14,6 +16,18 @@ public class Bill {
     }
 
     public int getTotalCost() {
-        return 0;
+        return totalCostForBorewellWater() + totalCostForTankerWater() +totalCostForCorporationWater();
+    }
+
+    private int totalCostForBorewellWater() {
+        return waterRate.getTotalBorewellRate(apartment.totalWaterConsumedFromBoreWell());
+    }
+
+    private int totalCostForCorporationWater() {
+        return waterRate.getTotalCorporationRate(apartment.totalWaterConsumedFromCorporation());
+    }
+
+    private int totalCostForTankerWater() {
+        return waterRate.getTotalTankerRate(apartment.waterConsumptionPerMonthGuests());
     }
 }

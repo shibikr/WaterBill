@@ -8,4 +8,12 @@ public class WaterRatio {
         this.corporationWater = corporationWater;
         this.boreWellWater = boreWellWater;
     }
+
+    public int getCorporationWater() {
+        return corporationWater;
+    }
+
+    public int getBoreWellWater() {
+        return boreWellWater;
+    }
 }
