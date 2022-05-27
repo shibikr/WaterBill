@@ -13,18 +13,14 @@ public class WaterRate{
     }
 
     public int getTotalTankerRate(int litresPerMonth) {
-        return litresPerMonth * getRate(litresPerMonth);
-    }
-
-    private int getRate(int litresPerMonth) {
         if(litresPerMonth >= 0 && litresPerMonth <=500) {
-            return 2;
+            return litresPerMonth * 2;
         } else if (litresPerMonth >= 501 && litresPerMonth <= 1500) {
-            return 3;
+            return 500 * 2 + (litresPerMonth - 500) * 3;
         } else if (litresPerMonth >= 1501 && litresPerMonth <= 3000) {
-            return 5;
+            return 500 * 2 + 1000 * 3 + (litresPerMonth - 1500) * 5;
         } else if(litresPerMonth >= 3001){
-            return 8;
+            return 500 * 2 + 1000 * 3 + 1500 * 5 + (litresPerMonth - 3000) * 8;
         }
         return 0;
     }
