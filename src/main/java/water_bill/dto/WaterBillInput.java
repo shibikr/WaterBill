@@ -3,15 +3,19 @@ package water_bill.dto;
 import java.util.List;
 
 public class WaterBillInput {
-    private List<List<String>> lines;
-    public WaterBillInput(List<List<String>> lines) {
-        this.lines = lines;
+    private List<String> input;
+    public WaterBillInput(List<String> lines) {
+        this.input = lines;
+    }
+
+    public List<String> getInput() {
+        return input;
     }
 
     @Override
     public String toString() {
         return "WaterBillInput{" +
-                "lines=" + lines +
+                "lines=" + input +
                 '}';
     }
 }

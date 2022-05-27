@@ -17,13 +17,12 @@ public class FileProcessor {
     }
 
     public WaterBillInput readFile() throws IOException {
-        List<List<String>> lines = new ArrayList<>();
+        List<String> lines = new ArrayList<>();
         BufferedReader br = new BufferedReader(new FileReader(this.filePath));
         try {
             String line = br.readLine();
             while (line != null) {
-                String[] eachLine = line.split(" ");
-                lines.add(Arrays.asList(eachLine));
+                lines.add(line);
 
                 line = br.readLine();
             }

@@ -1,19 +1,19 @@
 package water_bill.models;
 
-public class Bill {
-    private int totalWaterConsumed;
-    private int totalCost;
+import water_bill.models.apartment.Apartment;
 
-    public Bill(int totalWaterConsumed, int totalCost) {
-        this.totalWaterConsumed = totalWaterConsumed;
-        this.totalCost = totalCost;
+public class Bill {
+    private Apartment apartment;
+
+    public Bill(Apartment apartment) {
+        this.apartment = apartment;
     }
 
     public int getTotalWaterConsumed() {
-        return totalWaterConsumed;
+        return this.apartment.totalWaterConsumedForMonth();
     }
 
     public int getTotalCost() {
-        return totalCost;
+        return 0;
     }
 }
